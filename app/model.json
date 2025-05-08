@@ -1,6 +1,6 @@
 {
     "application": {
-        "title": "Dario & Fredi's Requirements Engineering Friend Tracker (FS2025)",
+        "title": "Di Fronzo & Azevedo's Requirements Engineering Friend Tracker (FS2025)",
         "formList": [
             {
                 "id": "FriendForm",
@@ -258,39 +258,23 @@
                     {
                         "type": "button",
                         "name": "Location",
-                        "icon": "fa-cubes",
+                        "icon": "fa-home",
                         "color": "yellow",
                         "page": "locationspage"
                     },
                     {
                         "type": "button",
                         "name": "Groups",
-                        "icon": "fa-weixin",
-                        "color": "wisteria",
+                        "icon": "fa-users",
+                        "color": "green",
                         "page": "groupspage"
                     },
                     {
                         "type": "button",
                         "name": "Activities",
-                        "icon": "fa-hiking",
-                        "color": "pink",
+                        "icon": "fa-calendar",
+                        "color": "red",
                         "page": "activitypage"
-                    }
-                ]
-            },
-            {
-                "id": "locationmenu",
-                "name": "LocationMenu",
-                "elementList": [
-                    {
-                        "type": "list",
-                        "icon": "fa-home",
-                        "color": "blue",
-                        "search": true,
-                        "url": "/location/:locationKey/activity",
-                        "form": {
-                            "form": "ActivityForm"
-                        }
                     }
                 ]
             },
@@ -315,47 +299,7 @@
                         "color": "blue",
                         "search": true,
                         "url": "/friend",
-                        "page": "friendsmenu"
-                    },
-                    {
-                        "type": "list",
-                        "icon": "fa-user",
-                        "color": "blue",
-                        "search": true,
-                        "url": "/friend",
                         "page": "frienddetailpage"
-                    }
-                ]
-            },
-            {
-                "id": "friendsmenu",
-                "name": "FriendMenu",
-                "elementList": [
-                    {
-                        "type": "button",
-                        "name": "EditFriend",
-                        "form": {
-                            "form": "FriendForm"
-                        }
-                    },
-                    {
-                        "type": "newButton",
-                        "name": "AddActivity",
-                        "icon": "fa-weixin",
-                        "color": "wisteria",
-                        "form": {
-                            "form": "AddActivityForm"
-                        }
-                    },
-                    {
-                        "type": "list",
-                        "icon": "fa-weixin",
-                        "color": "wisteria",
-                        "search": true,
-                        "url": "/friend/:friendKey/activity",
-                        "form": {
-                            "form": "ActivityForm"
-                        }
                     }
                 ]
             },
@@ -367,16 +311,18 @@
                     },
                     {
                         "type": "button",
-                        "name": "Edit Friend",
+                        "color": "green",
+                        "icon": "fa-user",
+                        "name": "EditFriend",
                         "form": {
                             "form": "FriendForm"
                         }
                     },
                     {
                         "type": "newButton",
-                        "name": "Add Activity",
-                        "icon": "fa-calendar-plus",
-                        "color": "orange",
+                        "name": "AddActivity",
+                        "icon": "fa-calendar",
+                        "color": "green",
                         "form": {
                             "form": "AddActivityForm"
                         }
@@ -394,6 +340,60 @@
                 ]
             },
             {
+                "id": "activitydetailpage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "button",
+                        "color": "green",
+                        "icon": "fa-calendar",
+                        "name": "EditActivity",
+                        "form": {
+                            "form": "ActivityForm"
+                        }
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-user",
+                        "color": "blue",
+                        "search": true,
+                        "url": "/activity/:activityKey/friend",
+                        "form": {
+                            "form": "FriendForm"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "locationdetailpage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "button",
+                        "color": "green",
+                        "icon": "fa-home",
+                        "name": "EditLocation",
+                        "form": {
+                            "form": "LocationForm"
+                        }
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-calendar",
+                        "color": "blue",
+                        "search": true,
+                        "url": "/location/:locationKey/activity",
+                        "form": {
+                            "form": "ActivityForm"
+                        }
+                    }
+                ]
+            },
+            {
                 "id": "locationspage",
                 "elementList": [
                     {
@@ -404,7 +404,6 @@
                         "name": "NewLocation",
                         "icon": "fa-home",
                         "color": "green",
-                        "width": 2,
                         "form": {
                             "form": "LocationForm"
                         }
@@ -415,7 +414,7 @@
                         "color": "blue",
                         "search": true,
                         "url": "/location",
-                        "page": "locationmenu"
+                        "page": "locationdetailpage"
                     }
                 ]
             },
@@ -428,7 +427,7 @@
                     {
                         "type": "newButton",
                         "name": "NewGroup",
-                        "icon": "fa-weixin",
+                        "icon": "fa-users",
                         "color": "green",
                         "form": {
                             "form": "GroupForm"
@@ -436,8 +435,8 @@
                     },
                     {
                         "type": "list",
-                        "icon": "fa-weixin",
-                        "color": "wisteria",
+                        "icon": "fa-users",
+                        "color": "blue",
                         "search": true,
                         "url": "/group",
                         "form": {
@@ -455,21 +454,19 @@
                     {
                         "type": "newButton",
                         "name": "NewActivity",
-                        "icon": "fa-hiking",
+                        "icon": "fa-calendar",
                         "color": "green",
                         "form": {
-                            "form": "AddActivityForm"
+                            "form": "ActivityForm"
                         }
                     },
                     {
                         "type": "list",
-                        "icon": "fa-hiking",
-                        "color": "pink",
+                        "icon": "fa-calendar",
+                        "color": "blue",
                         "search": true,
                         "url": "/activity",
-                        "form": {
-                            "form": "ActivityForm"
-                        }
+                        "page": "activitydetailpage"
                     }
                 ]
             }
